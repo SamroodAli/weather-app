@@ -1,5 +1,5 @@
-# TO DO List project
-  A todo list app built using Web APIs and webpack to bundle modules.
+# Weather App
+  A Weather app built using Web APIs and webpack to bundle modules.
 ## Built With
 - CSS Bootstrap
 - Javascript
@@ -25,7 +25,7 @@ All code below are for a terminal.
 
 1. Clone repository: 
 ```sh
-  $ git clone https://github.com/SamroodAli/to-do-list-app.git
+  $ git clone https://github.com/SamroodAli/weather-app.git
 ```
 2. Change directory inside project
 ```sh
@@ -73,4 +73,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](/LICENSE) licensed.
-# weather-app
