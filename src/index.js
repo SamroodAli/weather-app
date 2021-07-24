@@ -14,10 +14,12 @@ async function getWeather(location) {
   return { data, status };
 }
 
-function displayWeatherData(data) {
-  const temperature = data.data.main.temp;
-  changePage(p(temperature));
+function displayWeatherData(weatherData) {
+  const temperature = weatherData.data.main;
+  updateWeatherData(data);
 }
+
+function updateWeatherData() {}
 
 const form = eleId("form");
 const location = eleId("location");
