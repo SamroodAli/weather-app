@@ -1,6 +1,6 @@
 import "./style.scss";
-import { changePage } from "./api/render";
-import { p } from "./api/tags";
+import { changePage, eleId } from "./api/render";
+import weatherCard from "./pages/weather";
 const API_KEY = process.env.API_KEY;
 
 function fromOpenWeatherMap(location, units = "metric") {
@@ -14,19 +14,17 @@ async function getWeather(location) {
   return { data, status };
 }
 
-function getTemperature(data) {
+function displayWeatherData(data) {
   const temperature = data.data.main.temp;
   changePage(p(temperature));
-  return data.main.temperature;
 }
 
-getWeather("Delhi").then(getTemperature);
-
-const form = document.getElementById("form");
+const form = eleId("form");
+const location = eleId("location");
 
 function onSubmit(e) {
   e.preventDefault();
-  changePage(p("Submitted"));
+  getWeather(location.value).then(displayWeatherData);
 }
 
 form.addEventListener("submit", onSubmit);
