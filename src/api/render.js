@@ -1,5 +1,5 @@
 export const render = (parent, child) => {
-  parent.innerHTML = '';
+  parent.innerHTML = "";
   parent.append(child);
   return parent;
 };
@@ -17,8 +17,9 @@ export const deleteId = (id) => {
   eleId(id).remove();
 };
 
-const content = renderOnId('content');
+const content = renderOnId("content");
 
 export const changePage = (markup) => {
+  eleId("content").innerHTML = "";
   content(markup);
 };

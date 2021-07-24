@@ -1,13 +1,23 @@
 import "./style.scss";
+import { changePage } from "./api/render";
+import { p } from "./api/tags";
+const API_KEY = process.env.API_KEY;
 
 function fromOpenWeatherMap(location, units = "metric") {
-  return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=&units=${units}`;
+  return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
 }
 
 async function getWeather(location) {
-  const data = await fetch(fromOpenWeatherMap(location));
-  return data.json();
+  const response = await fetch(fromOpenWeatherMap(location));
+  const data = await response.json();
+  const status = response.status;
+  return { data, status };
 }
 
-// const data = getWeather("Alexandria");
-console.log("Hello programmer");
+function getTemperature(data) {
+  const temperature = data.data.main.temp;
+  changePage(p(temperature));
+  return data.main.temperature;
+}
+
+getWeather("Delhi").then(getTemperature);
