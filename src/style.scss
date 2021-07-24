@@ -7,17 +7,19 @@ body {
   visibility: hidden;
 }
 
+.none {
+  display: none;
+}
+
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
+  border: 16px solid #f3f3f3;
   margin: auto;
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
   animation: spin 2s linear infinite;
-  border-top: 16px solid blue;
-  border-right: 16px solid green;
-  border-bottom: 16px solid red;
-  border-left: 16px solid pink;
+  border-top: 16px solid #05386b;
+  border-bottom: 16px solid #5cdb95;
 }
 
 @keyframes spin {

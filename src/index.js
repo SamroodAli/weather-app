@@ -7,9 +7,12 @@ function fromOpenWeatherMap(location, units = "metric") {
   return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
 }
 
+const loader = eleId("loader");
 async function getWeather(location) {
+  loader.classList.toggle("none");
   const response = await fetch(fromOpenWeatherMap(location));
   const data = await response.json();
+  loader.classList.toggle("none");
   if (response.status === 200) {
     return data;
   } else {
@@ -47,9 +50,9 @@ function updateWeatherData(data) {
   city.innerHTML = `Weather Data for ${location.value}`;
   temperature = Number(data.temp);
   if (temperature < 15) {
-    document.body.style.backgroundColor = "#0000ff";
+    document.body.style.backgroundColor = "#0f5ebb";
   } else {
-    document.body.style.backgroundColor = "#FF4500";
+    document.body.style.backgroundColor = "#ff0000";
   }
   weatherCard.classList.remove("hidden");
   updateCelius();
