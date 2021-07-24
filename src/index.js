@@ -38,6 +38,11 @@ const updateFahrenheit = () =>
 function updateWeatherData(data) {
   city.innerHTML = `Weather Data for ${location.value}`;
   temperature = Number(data.temp);
+  if (temperature < 15) {
+    document.body.style.backgroundColor = "#0000ff";
+  } else {
+    document.body.style.backgroundColor = "#FF4500";
+  }
   updateCelius();
 }
 
