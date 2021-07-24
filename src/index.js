@@ -1,7 +1,8 @@
 import "./style.scss";
-const API_KEY = process.env.API_KEY;
 
-export const eleId = (id) => document.getElementById(id);
+const { API_KEY } = process.env;
+
+const eleId = (id) => document.getElementById(id);
 
 function fromOpenWeatherMap(location, units = "metric") {
   return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
@@ -15,34 +16,29 @@ async function getWeather(location) {
   loader.classList.toggle("none");
   if (response.status === 200) {
     return data;
-  } else {
-    alert("Unknown city or no temperature for city");
-    return {
-      main: { temp: 0 },
-    };
   }
+  alert("Unknown city or no temperature for city");
+  return {
+    main: { temp: 0 },
+  };
 }
 
 const form = eleId("form");
 const location = eleId("location");
 
-function displayWeatherData(weatherData) {
-  console.log(weatherData);
-  const data = weatherData.main;
-  updateWeatherData(data);
-}
-
 const city = eleId("city");
 const tempatureElement = eleId("temperature");
 let temperature = 0;
 
-const updateCelius = () =>
-  (tempatureElement.innerHTML = `Temperature: ${temperature} °C`);
+const updateCelius = () => {
+  tempatureElement.innerHTML = `Temperature: ${temperature} °C`;
+};
 
 const calcFahrenheit = () => temperature * (9 / 5) + 32;
 
-const updateFahrenheit = () =>
-  (tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °C`);
+const updateFahrenheit = () => {
+  tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °C`;
+};
 
 const weatherCard = eleId("weatherCard");
 
@@ -56,6 +52,11 @@ function updateWeatherData(data) {
   }
   weatherCard.classList.remove("hidden");
   updateCelius();
+}
+
+function displayWeatherData(weatherData) {
+  const data = weatherData.main;
+  updateWeatherData(data);
 }
 
 function onSubmit(e) {
