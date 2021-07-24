@@ -21,3 +21,12 @@ function getTemperature(data) {
 }
 
 getWeather("Delhi").then(getTemperature);
+
+const form = document.getElementById("form");
+
+function onSubmit(e) {
+  e.preventDefault();
+  changePage(p("Submitted"));
+}
+
+form.addEventListener("submit", onSubmit);
