@@ -41,6 +41,8 @@ const calcFahrenheit = () => temperature * (9 / 5) + 32;
 const updateFahrenheit = () =>
   (tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °C`);
 
+const weatherCard = eleId("weatherCard");
+
 function updateWeatherData(data) {
   city.innerHTML = `Weather Data for ${location.value}`;
   temperature = Number(data.temp);
@@ -49,6 +51,7 @@ function updateWeatherData(data) {
   } else {
     document.body.style.backgroundColor = "#FF4500";
   }
+  weatherCard.classList.remove("hidden");
   updateCelius();
 }
 
