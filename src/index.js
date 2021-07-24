@@ -10,16 +10,22 @@ function fromOpenWeatherMap(location, units = "metric") {
 async function getWeather(location) {
   const response = await fetch(fromOpenWeatherMap(location));
   const data = await response.json();
-  const status = response.status;
-  return { data, status };
+  if (response.status === 200) {
+    return data;
+  } else {
+    alert("Unknown city or no temperature for city");
+    return {
+      main: { temp: 0 },
+    };
+  }
 }
 
 const form = eleId("form");
 const location = eleId("location");
 
 function displayWeatherData(weatherData) {
-  const data = weatherData.data.main;
-  console.log(data);
+  console.log(weatherData);
+  const data = weatherData.main;
   updateWeatherData(data);
 }
 
