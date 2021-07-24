@@ -1,6 +1,7 @@
 import "./style.scss";
-import { changePage, eleId } from "./api/render";
 const API_KEY = process.env.API_KEY;
+
+export const eleId = (id) => document.getElementById(id);
 
 function fromOpenWeatherMap(location, units = "metric") {
   return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
@@ -23,14 +24,31 @@ function displayWeatherData(weatherData) {
 }
 
 const city = eleId("city");
-const temperature = eleId("temperature");
+const tempatureElement = eleId("temperature");
+let temperature = 0;
+
+const updateCelius = () =>
+  (tempatureElement.innerHTML = `Temperature: ${temperature} °C`);
+
+const calcFahrenheit = () => temperature * (9 / 5) + 32;
+
+const updateFahrenheit = () =>
+  (tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °C`);
+
 function updateWeatherData(data) {
   city.innerHTML = `Weather Data for ${location.value}`;
-  temperature.innerHTML = `Temperature: ${data.temp} °C`;
+  temperature = Number(data.temp);
+  updateCelius();
 }
 
 function onSubmit(e) {
   e.preventDefault();
   getWeather(location.value).then(displayWeatherData);
 }
+
 form.addEventListener("submit", onSubmit);
+
+const fahrenheit = eleId("fahrenheit");
+fahrenheit.addEventListener("click", updateFahrenheit);
+const celsius = eleId("celsius");
+celsius.addEventListener("click", updateCelius);
