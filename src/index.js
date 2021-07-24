@@ -1,6 +1,5 @@
 import "./style.scss";
 import { changePage, eleId } from "./api/render";
-import weatherCard from "./pages/weather";
 const API_KEY = process.env.API_KEY;
 
 function fromOpenWeatherMap(location, units = "metric") {
@@ -14,19 +13,24 @@ async function getWeather(location) {
   return { data, status };
 }
 
+const form = eleId("form");
+const location = eleId("location");
+
 function displayWeatherData(weatherData) {
-  const temperature = weatherData.data.main;
+  const data = weatherData.data.main;
+  console.log(data);
   updateWeatherData(data);
 }
 
-function updateWeatherData() {}
-
-const form = eleId("form");
-const location = eleId("location");
+const city = eleId("city");
+const temperature = eleId("temperature");
+function updateWeatherData(data) {
+  city.innerHTML = `Weather Data for ${location.value}`;
+  temperature.innerHTML = `Temperature: ${data.temp} °C`;
+}
 
 function onSubmit(e) {
   e.preventDefault();
   getWeather(location.value).then(displayWeatherData);
 }
-
 form.addEventListener("submit", onSubmit);
