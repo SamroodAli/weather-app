@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const { API_KEY } = process.env;
+const API_KEY = process.env.API_KEY;
 console.log(API_KEY, "key");
 
 const eleId = (id) => document.getElementById(id);
