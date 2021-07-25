@@ -39,13 +39,12 @@ npm install
 ```sh
 npm run build
 ```
-5. You can now open the `index.html` file in `dist folder` in any browser.
+5. You can now open the `index.html` file in `src folder` in any browser.
    
-6. You can also run the following to access the website on `http://localhost:5000` in your local computer.
+6. You can also run the following to access the website on `http://localhost:3000` in your local computer.
 ```sh
-npm run serve
+npm run dev
 ```
-* Press `Ctrl + c` to exit the `npm run serve` session in your terminal.
 ## Author
 
 ![Samrood Ali's GitHub stats](https://github-readme-stats.vercel.app/api?username=SamroodAli&count_private=true&theme=dark&show_icons=true)
