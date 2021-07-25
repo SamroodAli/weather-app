@@ -8,7 +8,7 @@
 ## Live Demo
 
 Click on the link below for accessing the deployed website.
-### [To Do List App](https://samroodali.github.io/to-do-list-app/)</p>
+### [Weather App](https://samroodali.github.io/to-do-list-app/)</p>
 
 
 ## Getting Started
@@ -29,7 +29,7 @@ All code below are for a terminal.
 ```
 2. Change directory inside project
 ```sh
-cd to-do-list-app
+cd weather-app
 ```
 3. In your terminal, run 
 ```sh
