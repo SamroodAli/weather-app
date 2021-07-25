@@ -63,7 +63,7 @@ function updateWeatherData(data) {
   temperature = Number(data.temp);
   city.innerHTML = "Weather Data";
   if (temperature) {
-    city.innerHTML += `for ${location.value}`;
+    city.innerHTML += ` for ${location.value}`;
   }
   if (temperature < 15) {
     document.body.style.backgroundColor = "#0f5ebb";
