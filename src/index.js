@@ -1,7 +1,7 @@
 import "./style.scss";
 
 const { API_KEY } = process.env;
-console.log(API_KEY);
+console.log(API_KEY, "key");
 
 const eleId = (id) => document.getElementById(id);
 
@@ -90,4 +90,3 @@ const fahrenheit = eleId("fahrenheit");
 fahrenheit.addEventListener("click", updateFahrenheit);
 const celsius = eleId("celsius");
 celsius.addEventListener("click", updateCelius);
-{"mode":"full","isActive":false}
