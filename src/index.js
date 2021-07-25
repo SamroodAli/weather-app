@@ -47,13 +47,13 @@ const updateCelius = () => {
   }
 };
 
-const calcFahrenheit = () => temperature * (9 / 5) + 32;
+const calcFahrenheit = () => (temperature * (9 / 5) + 32).toFixed(2);
 
 const updateFahrenheit = () => {
   if (temperature === 0) {
     tempatureElement.innerHTML = "No weather data available";
   } else {
-    tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °C`;
+    tempatureElement.innerHTML = `Temperature: ${calcFahrenheit()} °F`;
   }
 };
 
