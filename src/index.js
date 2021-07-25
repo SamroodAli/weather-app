@@ -9,18 +9,27 @@ function fromOpenWeatherMap(location, units = 'metric') {
 }
 
 const loader = eleId('loader');
+
 async function getWeather(location) {
+  const placeholder = { main: { temp: 0 } };
+
   loader.classList.toggle('none');
-  const response = await fetch(fromOpenWeatherMap(location));
-  const data = await response.json();
-  loader.classList.toggle('none');
-  if (response.status === 200) {
-    return data;
+
+  try {
+    const response = await fetch(fromOpenWeatherMap(location));
+    const data = await response.json();
+    loader.classList.toggle('none');
+
+    if (response.status === 200) {
+      return data;
+    }
+
+    alert('Unknown city or no temperature for city');
+    return placeholder;
+  } catch (e) {
+    console.error(e);
+    return placeholder;
   }
-  alert('Unknown city or no temperature for city');
-  return {
-    main: { temp: 0 },
-  };
 }
 
 const form = eleId('form');
