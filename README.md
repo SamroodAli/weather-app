@@ -5,11 +5,6 @@
 - Javascript
 - Webpack
 
-## Live Demo
-
-Click on the link below for accessing the deployed website.
-### [Weather App](https://samroodali.github.io/to-do-list-app/)</p>
-
 
 ## Getting Started
 
