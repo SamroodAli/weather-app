@@ -40,6 +40,10 @@ npm run build
 ```sh
 npm run dev
 ```
+
+## npm scripts
+The project has been templated using my webpack starter template. The project and the specific npm commands can be found [here](https://github.com/SamroodAli/webpack-project-starter)
+
 ## Author
 
 ![Samrood Ali's GitHub stats](https://github-readme-stats.vercel.app/api?username=SamroodAli&count_private=true&theme=dark&show_icons=true)
