@@ -4,13 +4,11 @@ const { API_KEY } = process.env;
 
 const eleId = (id) => document.getElementById(id);
 
-function fromOpenWeatherMap(location, units = 'metric') {
-  return `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
-}
+const fromOpenWeatherMap = (location, units = 'metric') => `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=${units}`;
 
 const loader = eleId('loader');
 
-async function getWeather(location) {
+const getWeather = async (location) => {
   const placeholder = { main: { temp: 0 } };
 
   loader.classList.toggle('none');
@@ -28,7 +26,7 @@ async function getWeather(location) {
     console.error(e);
     return placeholder;
   }
-}
+};
 
 const form = eleId('form');
 const location = eleId('location');
@@ -57,7 +55,7 @@ const updateFahrenheit = () => {
 
 const weatherCard = eleId('weatherCard');
 
-function updateWeatherData(data) {
+const updateWeatherData = (data) => {
   temperature = Number(data.temp);
   city.innerHTML = 'Weather Data';
   if (temperature) {
@@ -70,17 +68,17 @@ function updateWeatherData(data) {
   }
   weatherCard.classList.remove('hidden');
   updateCelius();
-}
+};
 
-function displayWeatherData(weatherData) {
+const displayWeatherData = (weatherData) => {
   const data = weatherData.main;
   updateWeatherData(data);
-}
+};
 
-function onSubmit(e) {
+const onSubmit = (e) => {
   e.preventDefault();
   getWeather(location.value).then(displayWeatherData);
-}
+};
 
 form.addEventListener('submit', onSubmit);
 
