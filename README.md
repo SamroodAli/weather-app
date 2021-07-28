@@ -6,6 +6,9 @@
 - Webpack
 
 
+## Live link
+The website is hosted live [here](https://samroodali.github.io/weather-app/)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
