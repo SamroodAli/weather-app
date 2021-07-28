@@ -23,7 +23,6 @@ const getWeather = async (location) => {
     }
     return placeholder;
   } catch (e) {
-    console.error(e);
     return placeholder;
   }
 };
