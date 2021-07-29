@@ -5,11 +5,9 @@
 - Javascript
 - Webpack
 
-## Live Demo
 
-Click on the link below for accessing the deployed website.
-### [To Do List App](https://samroodali.github.io/to-do-list-app/)</p>
-
+## Live link
+The website is hosted live [here](https://samroodali.github.io/weather-app/)
 
 ## Getting Started
 
@@ -29,7 +27,7 @@ All code below are for a terminal.
 ```
 2. Change directory inside project
 ```sh
-cd to-do-list-app
+cd weather-app
 ```
 3. In your terminal, run 
 ```sh
@@ -39,13 +37,16 @@ npm install
 ```sh
 npm run build
 ```
-5. You can now open the `index.html` file in `dist folder` in any browser.
+5. You can now open the `index.html` file in `src folder` in any browser.
    
-6. You can also run the following to access the website on `http://localhost:5000` in your local computer.
+6. You can also run the following to access the website on `http://localhost:3000` in your local computer.
 ```sh
-npm run serve
+npm run dev
 ```
-* Press `Ctrl + c` to exit the `npm run serve` session in your terminal.
+
+## npm scripts
+The project has been templated using my webpack starter template. The project and the specific npm commands can be found [here](https://github.com/SamroodAli/webpack-project-starter)
+
 ## Author
 
 ![Samrood Ali's GitHub stats](https://github-readme-stats.vercel.app/api?username=SamroodAli&count_private=true&theme=dark&show_icons=true)

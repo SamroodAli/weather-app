@@ -5,29 +5,35 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ",
-    "dev": "webpack --serve --mode development --open",
+    "build": "webpack --config webpack/webpack.config.prod.js",
+    "live": "git subtree push --prefix dist origin gh-pages",
+    "publish": "npm run build;npm run live",
+    "dev": "webpack serve --config webpack/webpack.config.dev.js",
     "serve": "serve dist",
     "lint": "npx stylelint '**/*.{css,scss}' --fix",
-    "eslint": "npx eslint . --fix"
+    "hint": "npx hint --telemetry=off .",
+    "eslint": "npx eslint . --fix",
+    "linters": "npm run lint;npm run eslint;npm run hint"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SamroodAli/restuarant-page.git"
   },
   "author": "Samrood Ali",
-  "license": "ISC",
+  "license": "ISC",  
+  "homepage": "https://github.com/SamroodAli/restuarant-page#readme",
   "bugs": {
     "url": "https://github.com/SamroodAli/restuarant-page/issues"
   },
-  "homepage": "https://github.com/SamroodAli/restuarant-page#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^5.2.6",
+    "dotenv-webpack": "^7.0.3",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
     "hint": "^6.1.4",
+    "html-webpack-plugin": "^5.3.2",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "serve": "^12.0.0",
@@ -40,8 +46,5 @@
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "nanoid": "^3.1.23"
   }
 }
